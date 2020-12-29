@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/catarn-gh-pages/static/css/main.ba6549c5.chunk.css",
-    "main.js": "/catarn-gh-pages/static/js/main.73033edd.chunk.js",
-    "main.js.map": "/catarn-gh-pages/static/js/main.73033edd.chunk.js.map",
+    "main.js": "/catarn-gh-pages/static/js/main.f1fe16f8.chunk.js",
+    "main.js.map": "/catarn-gh-pages/static/js/main.f1fe16f8.chunk.js.map",
     "runtime-main.js": "/catarn-gh-pages/static/js/runtime-main.80943ee8.js",
     "runtime-main.js.map": "/catarn-gh-pages/static/js/runtime-main.80943ee8.js.map",
     "static/js/2.637bd927.chunk.js": "/catarn-gh-pages/static/js/2.637bd927.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.80943ee8.js",
     "static/js/2.637bd927.chunk.js",
     "static/css/main.ba6549c5.chunk.css",
-    "static/js/main.73033edd.chunk.js"
+    "static/js/main.f1fe16f8.chunk.js"
   ]
 }
