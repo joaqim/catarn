@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/catarn/static/css/main.ba6549c5.chunk.css",
+    "main.js": "/catarn/static/js/main.73033edd.chunk.js",
+    "main.js.map": "/catarn/static/js/main.73033edd.chunk.js.map",
+    "runtime-main.js": "/catarn/static/js/runtime-main.85520a4d.js",
+    "runtime-main.js.map": "/catarn/static/js/runtime-main.85520a4d.js.map",
+    "static/js/2.42e6e47c.chunk.js": "/catarn/static/js/2.42e6e47c.chunk.js",
+    "static/js/2.42e6e47c.chunk.js.map": "/catarn/static/js/2.42e6e47c.chunk.js.map",
+    "static/js/3.9d5df16b.chunk.js": "/catarn/static/js/3.9d5df16b.chunk.js",
+    "static/js/3.9d5df16b.chunk.js.map": "/catarn/static/js/3.9d5df16b.chunk.js.map",
+    "index.html": "/catarn/index.html",
+    "static/css/main.ba6549c5.chunk.css.map": "/catarn/static/css/main.ba6549c5.chunk.css.map",
+    "static/js/2.42e6e47c.chunk.js.LICENSE.txt": "/catarn/static/js/2.42e6e47c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.85520a4d.js",
+    "static/js/2.42e6e47c.chunk.js",
+    "static/css/main.ba6549c5.chunk.css",
+    "static/js/main.73033edd.chunk.js"
+  ]
+}
