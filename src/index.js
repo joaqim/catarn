@@ -3,10 +3,13 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import DiceContextProvider from "./components/contexts/diceContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <DiceContextProvider>
+      <App />
+    </DiceContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

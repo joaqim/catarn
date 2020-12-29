@@ -1,0 +1,152 @@
+
+.dice-container {
+  position: absolute;
+  top: 280px;
+  left: 480px;
+  justify-content: center;
+  align-items: center;
+  perspective: 500px;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                   supported by Chrome, Edge, Opera and Firefox */ }
+
+.dice {
+  position: absolute;
+  z-index: 1;
+  margin-left: auto;
+  margin-top: auto;
+  transform-style: preserve-3d;
+  transform-origin: center;
+  width: 60px;
+  height: 60px; }
+  .dice > div {
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    background: #776522;
+    border-color: #111;
+    border: 1px solid;
+    -webkit-background-clip: padding-box;
+    /* for Safari */
+    background-clip: padding-box;
+    /* for IE9+, Firefox 4+, Opera, Chrome */
+    box-shadow: 0px 0px 0px 2px rgba(85, 51, 17, 0.8);
+    border-radius: 8px;
+    background-image: url(./assets/dice_texture-marble1.jpg);
+    background-size: 100px; }
+  .dice span {
+    width: 8px;
+    height: 8px;
+    background: #222;
+    border-radius: 50%;
+    border-color: #000;
+    display: block;
+    position: absolute;
+    -webkit-filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.75));
+    -moz-filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.75));
+    -ms-filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.75));
+    -o-filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.75));
+    filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.75)); }
+  .dice .front {
+    transform: rotateY(0deg) translateZ(30px); }
+    .dice .front span:nth-child(1) {
+      top: 10px;
+      left: 12px; }
+    .dice .front span:nth-child(2) {
+      top: 10px;
+      right: 12px; }
+    .dice .front span:nth-child(3) {
+      top: 26px;
+      left: 12px; }
+    .dice .front span:nth-child(4) {
+      top: 26px;
+      right: 12px; }
+    .dice .front span:nth-child(5) {
+      bottom: 10px;
+      left: 12px; }
+    .dice .front span:nth-child(6) {
+      bottom: 10px;
+      right: 12px; }
+  .dice .back {
+    transform: rotateX(180deg) translateZ(30px); }
+    .dice .back img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 4px;
+      width: 45px;
+      height: 45px; }
+    .dice .back span {
+      top: 26px;
+      left: 26px; }
+  .dice .right {
+    transform: rotateY(90deg) translateZ(30px); }
+    .dice .right span:nth-child(1) {
+      top: 12px;
+      left: 12px; }
+    .dice .right span:nth-child(2) {
+      top: 12px;
+      right: 12px; }
+    .dice .right span:nth-child(3) {
+      top: 26px;
+      left: 26px; }
+    .dice .right span:nth-child(4) {
+      bottom: 12px;
+      left: 12px; }
+    .dice .right span:nth-child(5) {
+      bottom: 12px;
+      right: 12px; }
+  .dice .left {
+    transform: rotateY(-90deg) translateZ(30px); }
+    .dice .left span:nth-child(1) {
+      top: 12px;
+      right: 12px; }
+    .dice .left span:nth-child(2) {
+      bottom: 12px;
+      left: 12px; }
+  .dice .top {
+    transform: rotateX(90deg) translateZ(30px); }
+    .dice .top span:nth-child(1) {
+      top: 12px;
+      right: 12px; }
+    .dice .top span:nth-child(2) {
+      bottom: 12px;
+      left: 12px; }
+    .dice .top span:nth-child(3) {
+      bottom: 26px;
+      left: 26px; }
+  .dice .bottom {
+    transform: rotateX(-90deg) translateZ(30px); }
+    .dice .bottom span:nth-child(1) {
+      top: 12px;
+      right: 12px; }
+    .dice .bottom span:nth-child(2) {
+      top: 12px;
+      left: 12px; }
+    .dice .bottom span:nth-child(3) {
+      bottom: 12px;
+      left: 12px; }
+    .dice .bottom span:nth-child(4) {
+      bottom: 12px;
+      right: 12px; }
+
+.button {
+  position: fixed;
+  bottom: 20px;
+  background: #f76939;
+  padding: 20px 40px;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer; }
+  .button:hover {
+    background: #f76939; }

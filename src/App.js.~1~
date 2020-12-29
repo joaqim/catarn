@@ -1,0 +1,85 @@
+import "./App.css";
+import { useState, useEffect } from "react";
+import { subscribeToTimer, hostCreateNewGame, playerJoinGame } from "./api";
+
+import "./components/ColorSelect";
+import ColorSelect from "./components/ColorSelect";
+
+import Dice from "./components/Dice";
+import { useAnimation, applyAnimation } from "./components/AnimationHelper";
+
+//import Animation from "./components/Animation";
+
+import anim_dice from "./components/animation_dice_1.json";
+
+import { d2d6 } from "./components/random";
+
+import { WeightedDiceDeckController } from "./components/BalancedDice";
+import DiceGraph from "./components/DiceGraph";
+
+const dice = new WeightedDiceDeckController();
+
+const axis = [
+  { x: 0, y: 0, z: 0 },
+  { x: 1, y: 2, z: 2 }, // 1
+  { x: 1, y: 1, z: 0 }, // 2
+  { x: 0, y: -1, z: 0 }, // 3
+  { x: 1, y: 1, z: 1 }, // 4
+  { x: 1, y: -1, z: 0 }, // 5
+  { x: 1, y: 0, z: 0 }, // 6
+  { x: 0, y: 0, z: 0 },
+  { x: 0, y: 0, z: 0 },
+  /*
+    { x: 0, y: 0, z: 0 },
+    { x: 2, y: 0, z: 0 }, // 1
+    { x: -0.5, y: 3, z: 0 }, // 2
+    { x: 0.5, y: 3, z: 0 },
+    { x: 3.0, y: 1.0, z: 0.5 },
+    { x: 1, y: 1, z: -0.45 },
+    { x: 0, y: 0, z: 0 }, // 6
+    */
+];
+
+function App() {
+  const [timestamp, setTimestamp] = useState("NULL");
+  const [gameState, setGameState] = useState({});
+  const [color, setColor] = useState(null);
+
+  const [diceResult, setDice] = useState({ dice1: 0, dice2: 0 });
+
+  const [playingAnimation, playAnimation] = useState(false);
+
+  function rollDice(x = 2) {
+    setDice(dice.throwDice());
+  }
+
+  const time = new Date();
+  time.setSeconds(time.getSeconds() + 60);
+
+  const frame = useAnimation("linear", anim_dice.frame_count * 18, 0);
+  const ad = anim_dice.data[Math.floor(frame * (anim_dice.frame_count - 1))];
+
+  return (
+    <>
+      <Dice style={applyAnimation(ad, axis[diceResult.dice1], 100)} />
+      <DiceGraph />
+      <div className="App">
+        <header className="App-header">
+          <button onClick={hostCreateNewGame}>New Game</button>
+          {color ? (
+            <>
+              <p>Current color is: {color.label}</p>
+              <button onClick={playerJoinGame(color.value)}>Join Game</button>
+            </>
+          ) : (
+            <p>Please choose a color</p>
+          )}
+        </header>
+        <ColorSelect className="ColorSelect" onChange={setColor}></ColorSelect>
+        <p className="App-intro">This is the timer value: {timestamp}</p>
+      </div>
+    </>
+  );
+}
+
+export default App;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export function applyAnimation(a, axis = { x: 0, y: 0, z: 0 }, scale = 65) {
   const locScale = 20;

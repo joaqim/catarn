@@ -1,0 +1,84 @@
+import "./App.css";
+import { useState, useEffect, useReducer, useContext } from "react";
+import { subscribeToTimer, hostCreateNewGame, playerJoinGame } from "./api";
+
+import { WeightedDiceDeckController } from "./components/BalancedDice";
+import DiceGraph from "./components/DiceGraph";
+
+import ColorSelect from "./components/ColorSelect";
+
+import { diceContext } from "./components/contexts/diceContext";
+
+const dice = new WeightedDiceDeckController();
+function timeout(delay) {
+  return new Promise((res) => setTimeout(res, delay));
+}
+
+//function App() {
+const App = () => {
+  const {
+    state: { dice },
+    dispatch,
+  } = useContext(diceContext);
+
+  const [timestamp, setTimestamp] = useState("NULL");
+  const [color, setColor] = useState(null);
+
+  useEffect(() => {
+    subscribeToTimer((_err, timestamp) => setTimestamp(timestamp));
+  }, []);
+
+  const [input, setInput] = useState(0);
+  const [myArray, addItem] = useReducer((myArray, { type, value }) => {
+    switch (type) {
+      case "add":
+        return [...myArray, value];
+      case "remove":
+        return myArray.filter((_, index) => index !== value);
+      default:
+        return myArray;
+    }
+  }, []);
+  return (
+    <>
+      <div className="App">
+        <DiceGraph data={myArray} />
+        <button
+          onClick={() => {
+            const diceResult = dice.throwDice();
+            dispatch({
+              type: "add",
+              payload: { dice: { x: diceResult.dice1, y: diceResult.dice2 } },
+            });
+            /*
+            addItem({
+              type: "add",
+              value: diceResult.dice1 + diceResult.dice2,
+            });
+            */
+          }}
+        >
+          Add
+        </button>
+        {myArray.map((item, index) => (
+          <div>
+            <h2>
+              {item}
+              <button onClick={() => addItem({ type: "remove", value: index })}>
+                Remove
+              </button>
+            </h2>
+          </div>
+        ))}{" "}
+        <ColorSelect className="ColorSelect" onChange={setColor}></ColorSelect>
+        <header className="App-header">
+          <button onClick={hostCreateNewGame}>New Game</button>
+          <button onClick={playerJoinGame("green")}>Join Game</button>
+        </header>
+        <p className="App-intro">This is the timestamp value: {timestamp}</p>
+      </div>
+    </>
+  );
+};
+
+export default App;

@@ -15,7 +15,7 @@ export function hostCreateNewGame() {
   socket.emit("hostCreateNewGame");
 }
 
-export function playerJoinGame(color) {
+export function playerJoinGame(color = "magenta") {
   //console.log(color);
   socket.emit("playerJoinGame", color);
 }

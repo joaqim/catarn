@@ -28,7 +28,7 @@ export let initGame = function (sio, socket, sdb) {
   gameSocket.on("playerJoinGame", this.playerJoinGame);
 
   gameSocket.on("subscribeToTimer", (interval) => {
-    //console.log("client is subscribing to timer with interval ", interval);
+    console.log("client is subscribing to timer with interval ", interval);
     setInterval(() => {
       gameSocket.emit("timer", new Date());
     }, interval);
@@ -38,8 +38,7 @@ export let initGame = function (sio, socket, sdb) {
  * The 'START' button was clicked and 'hostCreateNewGame' event occurred.
  */
 export let hostCreateNewGame = function () {
-  //var thisGameId = (Math.random() * 100000) | 0;
-  thisGameId = (Math.random() * 100000) | 0;
+  const thisGameId = (Math.random() * 100000) | 0;
 
   console.log("--");
   console.log(this.id);
@@ -51,7 +50,7 @@ export let hostCreateNewGame = function () {
   });
 
   // Join the Room and wait for the players
-  //gameSocket.join(thisGameId.toString());
+  gameSocket.join(thisGameId.toString());
 };
 
 export let playerJoinGame = function (color) {
